@@ -2,6 +2,7 @@ package com.example.task.repository;
 
 import com.example.task.entity.Users;
 import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -9,7 +10,7 @@ import org.springframework.data.repository.Repository;
 import java.util.List;
 import java.util.Optional;
 
-public interface UsersRepository extends Repository<Users,Long> {
+public interface UsersRepository extends JpaRepository<Users,Long> {
 
     @Modifying
     @Transactional
@@ -43,7 +44,7 @@ public interface UsersRepository extends Repository<Users,Long> {
     @Transactional
     @Query(value = "delete from users where id = :user.id",
             nativeQuery = true)
-    Boolean delete (Users user);
+    int deleteById(Users user);
 
     @Modifying
     @Transactional

@@ -2,6 +2,9 @@ package com.example.task.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.redis.core.RedisHash;
+
+import java.util.List;
 
 @Entity(name = "users")
 @Data
@@ -18,4 +21,10 @@ public class Users {
     private String firstName;
 
     private String lastName;
+
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 }

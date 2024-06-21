@@ -5,14 +5,18 @@ import com.example.task.exception.BaseLogicException;
 import com.example.task.repository.UsersRepository;
 import com.example.task.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@CacheConfig(cacheNames = "userService")
 public class UserServiceImpl implements UserService {
     private final UsersRepository usersRepository;
+    @CacheEvict(allEntries = true)
     @Override
     public void create(Users user) {
         try {
