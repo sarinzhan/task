@@ -1,7 +1,7 @@
 package com.example.task.mapper;
 
 import com.example.task.dto.response.TaskResponseDto;
-import com.example.task.entity.Task;
+import com.example.task.entity.Application;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -16,8 +16,8 @@ public interface TaskResponseMapper {
             @Mapping(target = "userId", source = "user.id"),
             @Mapping(target = "status", source = "status.name")
     })
-    TaskResponseDto entityToDto(Task task);
+    TaskResponseDto entityToDto(Application task);
 
-    List<TaskResponseDto> listEntityToDto(List<Task> task);
+    List<TaskResponseDto> listEntityToDto(List<Application> task);
 
 }

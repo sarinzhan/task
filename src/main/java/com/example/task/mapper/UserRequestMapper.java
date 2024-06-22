@@ -1,20 +1,20 @@
 package com.example.task.mapper;
 
 import com.example.task.dto.response.UserResponseDto;
-import com.example.task.entity.Users;
+import com.example.task.entity.User;
 
 import java.util.List;
 
 public class UserRequestMapper {
-    public static UserResponseDto entityToDto(Users users){
+    public static UserResponseDto entityToDto(User user){
         UserResponseDto dto = new UserResponseDto();
-        dto.setFirstName(users.getFirstName());
-        dto.setLogin(users.getLogin());
+        dto.setFirstName(user.getFirstName());
+        dto.setLogin(user.getLogin());
         return dto;
     }
 
-    public static List<UserResponseDto> listEntityToDto(List<Users> usersList){
-        return usersList.stream()
+    public static List<UserResponseDto> listEntityToDto(List<User> userList){
+        return userList.stream()
                 .map(UserRequestMapper::entityToDto)
                 .toList();
     }

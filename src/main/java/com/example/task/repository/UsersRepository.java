@@ -1,16 +1,15 @@
 package com.example.task.repository;
 
-import com.example.task.entity.Users;
+import com.example.task.entity.User;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository<Users,Long> {
+public interface UsersRepository extends JpaRepository<User,Long> {
 
     @Modifying
     @Transactional
@@ -44,20 +43,20 @@ public interface UsersRepository extends JpaRepository<Users,Long> {
     @Transactional
     @Query(value = "delete from users where id = :user.id",
             nativeQuery = true)
-    int deleteById(Users user);
+    int deleteById(User user);
 
     @Modifying
     @Transactional
     @Query(value = "select * from users where id = :id",
             nativeQuery = true)
-    Users read(Long id);
+    User read(Long id);
 
     @Query(value = "select * from users", nativeQuery = true)
-    List<Users> getAll();
+    List<User> getAll();
 
     @Modifying
     @Transactional
     @Query(value = "select * from users where login = :login",
             nativeQuery = true)
-    Optional<Users> findByLogin(String login);
+    Optional<User> findByLogin(String login);
 }

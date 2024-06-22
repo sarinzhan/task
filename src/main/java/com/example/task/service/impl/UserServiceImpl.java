@@ -1,6 +1,6 @@
 package com.example.task.service.impl;
 
-import com.example.task.entity.Users;
+import com.example.task.entity.User;
 import com.example.task.exception.BaseLogicException;
 import com.example.task.repository.UsersRepository;
 import com.example.task.service.UserService;
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     private final UsersRepository usersRepository;
     @CacheEvict(allEntries = true)
     @Override
-    public void create(Users user) {
+    public void create(User user) {
         try {
 //            return usersRepository.create(user);
             usersRepository.create(user.getFirstName(), user.getLastName(), user.getLogin(), user.getPassword());
@@ -28,31 +28,31 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean auth(Users sourceUser) {
-        Users users = usersRepository.findByLogin(sourceUser.getLogin())
+    public Boolean auth(User sourceUser) {
+        User user = usersRepository.findByLogin(sourceUser.getLogin())
                 .orElseThrow(() ->  new BaseLogicException("Неудачная попытка входа"));
-        if(!users.getPassword().equals(sourceUser.getPassword())){
+        if(!user.getPassword().equals(sourceUser.getPassword())){
             throw new BaseLogicException("Неудачная попытка входа");
         }
         return true;
     }
 
     @Override
-    public void editPassword(Users sourceUser,String newPassword) {
-        Users users = usersRepository.findByLogin(sourceUser.getLogin())
+    public void editPassword(User sourceUser, String newPassword) {
+        User user = usersRepository.findByLogin(sourceUser.getLogin())
                 .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
-        if(sourceUser.getPassword().equals(users.getPassword())){
-            sourceUser.setId(users.getId());
+        if(sourceUser.getPassword().equals(user.getPassword())){
+            sourceUser.setId(user.getId());
             sourceUser.setPassword(newPassword);
-            usersRepository.updatePasswordById(users.getId(), newPassword );
+            usersRepository.updatePasswordById(user.getId(), newPassword );
         }else{
             throw new BaseLogicException("Указаны неверные данные");
         }
     }
 
     @Override
-    public List<Users> getAll() {
-        List<Users> all = usersRepository.getAll();
+    public List<User> getAll() {
+        List<User> all = usersRepository.getAll();
         if(all.isEmpty()){
             throw new BaseLogicException("Не удалось найти пользователей");
         }

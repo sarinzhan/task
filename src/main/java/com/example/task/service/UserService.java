@@ -1,16 +1,16 @@
 package com.example.task.service;
 
-import com.example.task.entity.Users;
+import com.example.task.entity.User;
 
 import java.util.List;
 
 public interface UserService {
-    void create(Users user);
+    void create(User user);
 
-    Boolean auth(Users user);
+    Boolean auth(User user);
 
-    void editPassword(Users user, String newPassword);
+    void editPassword(User user, String newPassword);
 
-    List<Users> getAll();
+    List<User> getAll();
 
 }

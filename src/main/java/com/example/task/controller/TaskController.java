@@ -1,11 +1,11 @@
 package com.example.task.controller;
 
 import com.example.task.dto.CommonResponseDto;
-import com.example.task.dto.request.CreateTaskRequestDto;
+import com.example.task.dto.request.CreateApplicationRequestDto;
 import com.example.task.dto.response.TaskResponseDto;
-import com.example.task.mapper.CreateTaskRequestMapper;
+import com.example.task.mapper.CreateApplicationRequestMapper;
 import com.example.task.mapper.TaskResponseMapper;
-import com.example.task.service.TaskService;
+import com.example.task.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,19 +15,19 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class TaskController {
-    private final TaskService taskService;
+    private final ApplicationService applicationSerivce;
 
-    private final CreateTaskRequestMapper createTaskRequestMapper;
+    private final CreateApplicationRequestMapper createTaskRequestMapper;
     private final TaskResponseMapper taskResponseMapper;
 
     @PostMapping("/create")
     public CommonResponseDto<Long> create(
-            @RequestBody CreateTaskRequestDto requestDto
+            @RequestBody CreateApplicationRequestDto requestDto
     ){
         return new CommonResponseDto<Long>()
                 .setOk()
                 .setData(
-                        taskService.create(
+                        applicationSerivce.create(
                                 createTaskRequestMapper.dtoToEntity(requestDto)).getId()
                 );
     }
@@ -38,7 +38,7 @@ public class TaskController {
                 .setOk()
                 .setData(
                         taskResponseMapper.listEntityToDto(
-                                taskService.getAll()
+                                applicationSerivce.getAll()
                         )
                 );
     }

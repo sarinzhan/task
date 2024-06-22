@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 @Data
-public class CreateTaskRequestDto {
+public class CreateApplicationRequestDto {
     private Long userId;
     private String title;
     private String description;
