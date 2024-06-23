@@ -34,16 +34,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public Boolean auth(User sourceUser) {
-        User user = usersRepository.findByUsername(sourceUser.getUsername())
-                .orElseThrow(() ->  new BaseLogicException("Неудачная попытка входа"));
-        if(!user.getPassword().equals(sourceUser.getPassword())){
-            throw new BaseLogicException("Неудачная попытка входа");
-        }
-        return true;
-    }
-
-    @Override
     public void editPassword(User sourceUser, String newPassword) {
         User user = usersRepository.findByUsername(sourceUser.getUsername())
                 .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
@@ -58,7 +48,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public List<User> getAll() {
-        List<User> all = usersRepository.getAll();
+        List<User> all = usersRepository.findAll();
         if(all.isEmpty()){
             throw new BaseLogicException("Не удалось найти пользователей");
         }
@@ -69,7 +59,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return usersRepository.findByUsername(username)
                 .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
+    }
 
-
+    @Override
+    public User findByUsername(String username) {
+        return usersRepository.findByUsername(username)
+                .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
     }
 }

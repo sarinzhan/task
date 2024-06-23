@@ -4,11 +4,12 @@ import com.example.task.dto.CommonResponseDto;
 import com.example.task.dto.request.AuthenticateRequestDto;
 import com.example.task.dto.request.RegisterUserRequestDto;
 import com.example.task.dto.request.UserEditPasswordRequestDto;
+import com.example.task.dto.response.TokenResponseDto;
 import com.example.task.dto.response.UserResponseDto;
-import com.example.task.mapper.AuthenticateRequestMapper;
 import com.example.task.mapper.RegisterUserRequestMapper;
 import com.example.task.mapper.UserEditPasswordRequestMapper;
 import com.example.task.mapper.UserRequestMapper;
+import com.example.task.service.AuthService;
 import com.example.task.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final AuthService authService;
 
     private final RegisterUserRequestMapper registerUserRequestMapper;
 
@@ -35,14 +37,14 @@ public class UserController {
     }
 
     @PostMapping("/auth")
-    public CommonResponseDto<Void> authUser(
+    public CommonResponseDto<TokenResponseDto> authUser(
             @RequestBody AuthenticateRequestDto authenticateRequestDto
     ){
-        userService.auth(
-                AuthenticateRequestMapper.dtoToEntity(authenticateRequestDto)
-        );
-        return new CommonResponseDto<Void>()
-                .setOk();
+        return new CommonResponseDto<TokenResponseDto>()
+                .setOk()
+                .setData(
+                        authService.authenticateUser(authenticateRequestDto)
+                );
     }
 
     @PostMapping("/edit-password")

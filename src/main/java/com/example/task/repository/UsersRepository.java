@@ -14,40 +14,11 @@ public interface UsersRepository extends JpaRepository<User,Long> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE users " +
-            "SET first_name = :firstName," +
-            "   last_name = :lastName, " +
-            "   login = :login, " +
-            "   password = :password " +
-            "WHERE id = :id",
-            nativeQuery = true)
-    int update(Long id,String firstName, String lastName, String login, String password);
-
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE users " +
             "SET password = :password " +
             "WHERE id = :id",
             nativeQuery = true)
     int updatePasswordById(Long id, String password);
 
-    @Modifying
-    @Transactional
-    @Query(value = "delete from users where id = :user.id",
-            nativeQuery = true)
-    int deleteById(User user);
-
-    @Modifying
-    @Transactional
-    @Query(value = "select * from users where id = :id",
-            nativeQuery = true)
-    User read(Long id);
-
-    @Query(value = "select * from users", nativeQuery = true)
-    List<User> getAll();
-
-    @Modifying
-    @Transactional
-    @Query(value = "select * from users where login = :username",
-            nativeQuery = true)
+    @Query("select u from users u where u.username = :username")
     Optional<User> findByUsername(String username);
 }

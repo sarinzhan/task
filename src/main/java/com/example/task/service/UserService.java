@@ -8,11 +8,12 @@ import java.util.List;
 public interface UserService {
     void create(User user);
 
-    Boolean auth(User user);
 
     void editPassword(User user, String newPassword);
 
     List<User> getAll();
 
     UserDetails loadUserByUsername(String username);
+
+    User findByUsername(String username);
 }
