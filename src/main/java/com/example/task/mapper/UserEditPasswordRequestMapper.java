@@ -7,7 +7,7 @@ public class UserEditPasswordRequestMapper {
 
     public static User dtoToEntity(UserEditPasswordRequestDto dto){
         User user = new User();
-        user.setLogin(dto.getLogin());
+        user.setUsername(dto.getLogin());
         user.setPassword(dto.getOldPassword());
         return user;
     }

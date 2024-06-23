@@ -9,7 +9,7 @@ public class UserRequestMapper {
     public static UserResponseDto entityToDto(User user){
         UserResponseDto dto = new UserResponseDto();
         dto.setFirstName(user.getFirstName());
-        dto.setLogin(user.getLogin());
+        dto.setLogin(user.getUsername());
         return dto;
     }
 

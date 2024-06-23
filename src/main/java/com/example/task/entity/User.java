@@ -18,7 +18,7 @@ public class User implements UserDetails {
     private Long id;
 
     @Column(name = "login",unique = true)
-    private String login;
+    private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -33,10 +33,10 @@ public class User implements UserDetails {
 
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
-    private UserRole userRole;
+    private UserRole role;
 
-    @Column(name = "is_active")
-    private Boolean isActive;
+    @Column(name = "is_active", columnDefinition = "boolean default true")
+    private Boolean isActive = true;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -57,7 +57,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.login;
+        return this.username;
     }
 
     @Override

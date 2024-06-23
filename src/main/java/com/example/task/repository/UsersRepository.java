@@ -30,15 +30,6 @@ public interface UsersRepository extends JpaRepository<User,Long> {
             nativeQuery = true)
     int updatePasswordById(Long id, String password);
 
-
-
-    @Modifying
-    @Transactional
-    @Query(value = "insert into users (first_name, last_name, login, password) " +
-            "values (:firstName, :lastName, :login, :password)",
-            nativeQuery = true)
-    int create(String firstName, String lastName, String login, String password);
-
     @Modifying
     @Transactional
     @Query(value = "delete from users where id = :user.id",

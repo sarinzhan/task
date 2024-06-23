@@ -21,12 +21,15 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("/create")
+    private final RegisterUserRequestMapper registerUserRequestMapper;
+
+    @PostMapping("/register")
     public CommonResponseDto<Long> createUser(
             @RequestBody RegisterUserRequestDto registerUserRequestDto
     ){
         userService.create(
-                RegisterUserRequestMapper.dtoToEntity(registerUserRequestDto));
+                registerUserRequestMapper.dtoToEntity(registerUserRequestDto)
+        );
         return new CommonResponseDto<Long>()
                 .setOk();
     }
