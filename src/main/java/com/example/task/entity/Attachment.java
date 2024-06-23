@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "attachment")
+@Entity(name = "attachments")
 @Data
 public class Attachment {
     @Id
@@ -19,7 +19,8 @@ public class Attachment {
     @Column(name = "file_path", nullable = false)
     private String filePath;
 
-    @Column(name = "uploaded_by", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "uploaded_by", nullable = false)
     private User uploadedBy;
 
     @Column(name = "uploaded_at", nullable = false)

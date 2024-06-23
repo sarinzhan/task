@@ -1,10 +1,12 @@
 package com.example.task.entity;
 
-import com.example.task.entity.enums.TaskStatus;
+import com.example.task.entity.enums.ApplicationPriority;
+import com.example.task.entity.enums.ApplicationStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "application")
 @Data
@@ -20,10 +22,12 @@ public class Application {
     private String description;
 
     @Column(name = "status", nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus status;
 
     @Column(name = "priority")
-    private String priority;
+    @Enumerated(EnumType.STRING)
+    private ApplicationPriority priority;
 
     @Column(name = "due_date")
     private LocalDateTime dueDate;
@@ -39,7 +43,11 @@ public class Application {
     private LocalDateTime assignedAt;
 
     @ManyToOne
-    @JoinColumn(name = "assigned_to", nullable = false)
-    private User assigned_to;
+    @JoinColumn(name = "assigned_to")
+    private User assignedTo;
+
+    @OneToMany(mappedBy = "application")
+    private List<Attachment> attachments;
+
 
 }

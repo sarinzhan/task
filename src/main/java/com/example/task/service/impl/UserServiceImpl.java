@@ -7,16 +7,17 @@ import com.example.task.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@CacheConfig(cacheNames = "userService")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
     private final UsersRepository usersRepository;
-    @CacheEvict(allEntries = true)
     @Override
     public void create(User user) {
         try {
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean auth(User sourceUser) {
-        User user = usersRepository.findByLogin(sourceUser.getLogin())
+        User user = usersRepository.findByUsername(sourceUser.getLogin())
                 .orElseThrow(() ->  new BaseLogicException("Неудачная попытка входа"));
         if(!user.getPassword().equals(sourceUser.getPassword())){
             throw new BaseLogicException("Неудачная попытка входа");
@@ -39,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void editPassword(User sourceUser, String newPassword) {
-        User user = usersRepository.findByLogin(sourceUser.getLogin())
+        User user = usersRepository.findByUsername(sourceUser.getLogin())
                 .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
         if(sourceUser.getPassword().equals(user.getPassword())){
             sourceUser.setId(user.getId());
@@ -57,5 +58,13 @@ public class UserServiceImpl implements UserService {
             throw new BaseLogicException("Не удалось найти пользователей");
         }
         return all;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return usersRepository.findByUsername(username)
+                .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
+
+
     }
 }

@@ -56,7 +56,7 @@ public interface UsersRepository extends JpaRepository<User,Long> {
 
     @Modifying
     @Transactional
-    @Query(value = "select * from users where login = :login",
+    @Query(value = "select * from users where login = :username",
             nativeQuery = true)
-    Optional<User> findByLogin(String login);
+    Optional<User> findByUsername(String username);
 }

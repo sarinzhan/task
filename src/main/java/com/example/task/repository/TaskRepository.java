@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Application, Long> {
 
-    @Query("select t from task t where t.user.id = :userId")
+    @Query("select a from application a where a.createdBy.id = :userId")
     List<Application> getAllByUserId(Long userId);
 }

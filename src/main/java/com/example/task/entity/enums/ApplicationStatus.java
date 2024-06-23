@@ -1,6 +1,6 @@
 package com.example.task.entity.enums;
 
-public enum TaskStatus {
+public enum ApplicationStatus {
     NEW,
     IN_PROGRESS,
     REVIEW,

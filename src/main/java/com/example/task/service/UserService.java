@@ -1,6 +1,7 @@
 package com.example.task.service;
 
 import com.example.task.entity.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface UserService {
 
     List<User> getAll();
 
+    UserDetails loadUserByUsername(String username);
 }

@@ -1,6 +1,6 @@
 package com.example.task.entity.enums;
 
-public enum TaskPriority {
+public enum ApplicationPriority {
     HIGH,
     MEDIUM,
     LOW

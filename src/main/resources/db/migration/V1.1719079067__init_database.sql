@@ -1,4 +1,4 @@
-create table user
+create table users
 (
     id         bigserial primary key,
     first_name varchar(100),
@@ -19,10 +19,10 @@ create table application
     status      varchar(50)  not null,
     priority    varchar(50),
     due_date    timestamp,
-    created_by  bigint       not null references user (id),
+    created_by  bigint       not null references users (id),
     created_at  timestamp    not null,
-    assigned_to bigint references user (id),
-    assigned_at timestamp,
+    assigned_to bigint references users (id),
+    assigned_at timestamp
 );
 
 create table application_audit
@@ -38,9 +38,9 @@ create table application_audit
     assigned_to    bigint,
     assigned_at    timestamp,
 
-    application_id bigint    not null references task (id),
+    application_id bigint    not null references application (id),
     action_at      timestamp not null,
-    action_by      bigint    not null references user (id)
+    action_by      bigint    not null references users (id)
 );
 
 -- CREATE TABLE comment
@@ -69,11 +69,11 @@ create table application_audit
 create table attachments
 (
     id             bigserial primary key,
-    application_id bigint       not null references task (id),
+    application_id bigint       not null references application (id),
     file_path      varchar(255) not null,
-    uploaded_by    bigint       not null references user (id),
+    uploaded_by    bigint       not null references users (id),
     uploaded_at    timestamp    not null
-)
+);
 
 
 
