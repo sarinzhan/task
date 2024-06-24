@@ -36,7 +36,7 @@ public class Application {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", nullable = false)
+    @JoinColumn(name = "created_by", nullable = false,updatable = false)
     private User createdBy;
 
     @Column(name = "assigned_at")

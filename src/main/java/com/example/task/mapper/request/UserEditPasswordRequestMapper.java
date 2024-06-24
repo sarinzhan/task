@@ -1,4 +1,4 @@
-package com.example.task.mapper;
+package com.example.task.mapper.request;
 
 import com.example.task.dto.request.UserEditPasswordRequestDto;
 import com.example.task.entity.User;

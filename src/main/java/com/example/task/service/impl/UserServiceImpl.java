@@ -66,4 +66,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return usersRepository.findByUsername(username)
                 .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
     }
+
+    @Override
+    public User findById(Long userId) {
+        return usersRepository.findById(userId)
+                .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
+    }
 }

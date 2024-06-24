@@ -1,4 +1,4 @@
-package com.example.task.dto.response;
+package com.example.task.dto.request;
 
 import com.example.task.entity.enums.ApplicationPriority;
 import com.example.task.entity.enums.ApplicationStatus;
@@ -7,15 +7,22 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class ApplicationResponseDto {
+public class ApplicationUpdateRequestDto {
     private Long id;
+
     private String title;
+
     private String description;
+
     private ApplicationStatus status;
+
     private ApplicationPriority priority;
+
     private LocalDateTime dueDate;
-    private Long createdUserId;
+
     private LocalDateTime createdAt;
-    private Long assignedUserId;
+
     private LocalDateTime assignedAt;
+
+    private Long assignedUserId;
 }

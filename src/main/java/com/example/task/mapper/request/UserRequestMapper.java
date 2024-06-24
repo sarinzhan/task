@@ -1,4 +1,4 @@
-package com.example.task.mapper;
+package com.example.task.mapper.request;
 
 import com.example.task.dto.response.UserResponseDto;
 import com.example.task.entity.User;

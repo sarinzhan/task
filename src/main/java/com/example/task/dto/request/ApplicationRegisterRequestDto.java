@@ -6,8 +6,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 @Data
-public class CreateApplicationRequestDto {
-    private Long createdUserId;
+public class ApplicationRegisterRequestDto {
     private String title;
     private String description;
     private ApplicationStatus status;

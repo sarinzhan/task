@@ -25,4 +25,7 @@ public class Attachment {
 
     @Column(name = "uploaded_at", nullable = false)
     private LocalDateTime uploadedAt;
+
+    @Transient
+    private String presignedFileUrl;
 }

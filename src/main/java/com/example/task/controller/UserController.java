@@ -6,11 +6,12 @@ import com.example.task.dto.request.RegisterUserRequestDto;
 import com.example.task.dto.request.UserEditPasswordRequestDto;
 import com.example.task.dto.response.TokenResponseDto;
 import com.example.task.dto.response.UserResponseDto;
-import com.example.task.mapper.RegisterUserRequestMapper;
-import com.example.task.mapper.UserEditPasswordRequestMapper;
-import com.example.task.mapper.UserRequestMapper;
+import com.example.task.mapper.request.RegisterUserRequestMapper;
+import com.example.task.mapper.request.UserEditPasswordRequestMapper;
+import com.example.task.mapper.request.UserRequestMapper;
 import com.example.task.service.AuthService;
 import com.example.task.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @RequestMapping("/user")
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "User API")
 public class UserController {
     private final UserService userService;
     private final AuthService authService;
