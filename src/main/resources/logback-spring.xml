@@ -1,0 +1,36 @@
+<configuration>
+    <appender name = "Console" class = "ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="File" class="ch.qos.logback.core.rolling.RollingFileAppender" additivity="false" >
+        <file>logs/log-file.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/archived/log-file-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--Max Size of file to start Archive -->
+                <maxFileSize>10KB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+            <!-- Days till log history to keep -->
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+
+    <root level = "INFO">
+        <appender-ref ref = "Console"/>
+        <appender-ref ref = "File"/>
+    </root>
+
+<!--    <root level = "DEBUG">-->
+<!--        <appender-ref ref = "SIZE_TIME_OUTPUT_FILE"/>-->
+<!--    </root>-->
+
+</configuration>

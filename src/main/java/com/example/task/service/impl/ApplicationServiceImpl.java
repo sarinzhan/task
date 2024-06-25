@@ -8,12 +8,14 @@ import com.example.task.exception.BaseLogicException;
 import com.example.task.repository.ApplicationRepository;
 import com.example.task.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class ApplicationServiceImpl implements ApplicationService {
 
     private final ApplicationRepository applicationRepository;

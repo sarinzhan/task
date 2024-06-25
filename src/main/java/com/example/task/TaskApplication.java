@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 public class TaskApplication {
 
     public static void main(String[] args) {
+        log.info("Article fecthed for id : {} is : {}", 1, "article");
         SpringApplication.run(TaskApplication.class, args);
     }
 
