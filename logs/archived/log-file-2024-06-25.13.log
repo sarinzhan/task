@@ -1,0 +1,108 @@
+14:16:42.676 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:16:42.683 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:16:42.684 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:16:48.349 [main] INFO  com.example.task.TaskApplication - Starting TaskApplication using Java 17.0.9 with PID 84756 (/Users/sarinzankazbekov/IdeaProjects/Task/target/classes started by sarinzankazbekov in /Users/sarinzankazbekov/IdeaProjects/Task)
+14:16:48.350 [main] INFO  com.example.task.TaskApplication - No active profile set, falling back to 1 default profile: "default"
+14:16:49.218 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+14:16:49.220 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:16:49.419 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 191 ms. Found 3 JPA repository interfaces.
+14:16:49.459 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+14:16:49.461 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:16:49.483 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.ApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:16:49.484 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.AttachmentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:16:49.484 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.UsersRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:16:49.484 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+14:16:50.649 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+14:16:50.661 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:16:50.664 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:16:50.664 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+14:16:50.745 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:16:50.746 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2369 ms
+14:16:51.593 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:16:51.842 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57b63253
+14:16:51.845 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:16:52.054 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+14:16:52.054 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+14:16:52.054 [main] INFO  o.f.c.i.license.VersionPrinter - 
+14:16:52.099 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/application (PostgreSQL 10.21)
+14:16:52.258 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.113s)
+14:16:52.327 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 1.1719126431
+14:16:52.333 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+14:16:52.508 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:16:52.579 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+14:16:52.616 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+14:16:52.826 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:16:52.903 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 10.21.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions.
+14:16:53.813 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:16:53.815 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:16:54.006 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+14:16:54.975 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:16:55.329 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1bbf750, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4473bbc1, org.springframework.security.web.context.SecurityContextHolderFilter@46c33614, org.springframework.security.web.header.HeaderWriterFilter@3ee9eaa7, org.springframework.web.filter.CorsFilter@433f8efa, org.springframework.security.web.authentication.logout.LogoutFilter@689d522e, com.example.task.jwt.JwtAuthenticationFilter@1b1d2d7b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7adde112, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40fdcbd5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c512269, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bb4fc7d, org.springframework.security.web.access.ExceptionTranslationFilter@72dc0d72, org.springframework.security.web.access.intercept.AuthorizationFilter@5242e9f7]
+14:16:55.797 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+14:16:55.806 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+14:16:55.816 [main] INFO  com.example.task.TaskApplication - Started TaskApplication in 7.871 seconds (process running for 8.711)
+14:17:04.744 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:17:04.745 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:17:04.749 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+14:17:04.790 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.UserServiceImpl.loadUserByUsername() with arguments = [jlet4uk]
+14:17:04.982 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.AttachmentServiceImpl.removeAll() with arguments = []
+14:17:05.007 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.S3ServiceImpl.removeAll() with arguments = []
+14:18:38.651 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m16s686ms).
+14:18:38.666 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.UserServiceImpl.loadUserByUsername() with arguments = [jlet4uk]
+14:18:40.905 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.AttachmentServiceImpl.removeAll() with arguments = []
+14:18:41.796 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Enter: com.example.task.service.impl.S3ServiceImpl.removeAll() with arguments = []
+14:22:27.046 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:22:27.052 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:22:27.054 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+14:22:30.625 [main] INFO  com.example.task.TaskApplication - Starting TaskApplication using Java 17.0.9 with PID 84918 (/Users/sarinzankazbekov/IdeaProjects/Task/target/classes started by sarinzankazbekov in /Users/sarinzankazbekov/IdeaProjects/Task)
+14:22:30.626 [main] INFO  com.example.task.TaskApplication - No active profile set, falling back to 1 default profile: "default"
+14:22:31.300 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+14:22:31.301 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:22:31.416 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 109 ms. Found 3 JPA repository interfaces.
+14:22:31.429 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+14:22:31.430 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:22:31.440 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.ApplicationRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:22:31.440 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.AttachmentRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:22:31.441 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.task.repository.UsersRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+14:22:31.441 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+14:22:31.954 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+14:22:31.960 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+14:22:31.961 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:22:31.962 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+14:22:31.999 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:22:32.000 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1342 ms
+14:22:32.257 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:22:32.342 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79b8ecb
+14:22:32.343 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:22:32.402 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+14:22:32.403 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+14:22:32.403 [main] INFO  o.f.c.i.license.VersionPrinter - 
+14:22:32.413 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/application (PostgreSQL 10.21)
+14:22:32.454 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.022s)
+14:22:32.465 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 1.1719126431
+14:22:32.467 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+14:22:32.550 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:22:32.599 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+14:22:32.627 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+14:22:32.791 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+14:22:32.851 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 10.21.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions.
+14:22:33.549 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+14:22:33.551 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:22:33.730 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+14:22:34.632 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:22:34.995 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2164f202, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5242e9f7, org.springframework.security.web.context.SecurityContextHolderFilter@79176fe4, org.springframework.security.web.header.HeaderWriterFilter@7e2723d2, org.springframework.web.filter.CorsFilter@48b9ee43, org.springframework.security.web.authentication.logout.LogoutFilter@4064cd60, com.example.task.jwt.JwtAuthenticationFilter@15d41953, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@57d3c5cd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@164c2914, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4690132, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c9e149, org.springframework.security.web.access.ExceptionTranslationFilter@44a3b4d9, org.springframework.security.web.access.intercept.AuthorizationFilter@79414283]
+14:22:35.443 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+14:22:35.452 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+14:22:35.462 [main] INFO  com.example.task.TaskApplication - Started TaskApplication in 5.249 seconds (process running for 6.003)
+14:22:43.386 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:22:43.386 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:22:43.390 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+14:22:43.572 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.UserServiceImpl.loadUserByUsername() with result = [!!!com.example.task.entity.User@feb5e31=>org.hibernate.LazyInitializationException:failed to lazily initialize a collection of role: com.example.task.entity.User.assignedApplications: could not initialize proxy - no Session!!!]
+14:22:44.957 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.S3ServiceImpl.removeAll() with result = null
+14:22:44.957 [http-nio-8080-exec-1] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.AttachmentServiceImpl.removeAll() with result = null
+14:23:01.426 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.UserServiceImpl.loadUserByUsername() with result = [!!!com.example.task.entity.User@44a3299d=>org.hibernate.LazyInitializationException:failed to lazily initialize a collection of role: com.example.task.entity.User.assignedApplications: could not initialize proxy - no Session!!!]
+14:23:01.954 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.S3ServiceImpl.removeAll() with result = null
+14:23:01.955 [http-nio-8080-exec-2] INFO  c.example.task.aspect.AspectLogging - Exit: com.example.task.service.impl.AttachmentServiceImpl.removeAll() with result = null
+14:23:29.981 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+14:23:29.995 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+14:23:30.003 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
