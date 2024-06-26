@@ -3,13 +3,13 @@ package com.example.task.controller;
 import com.example.task.dto.CommonResponseDto;
 import com.example.task.dto.request.AuthenticateRequestDto;
 import com.example.task.dto.request.RegisterUserRequestDto;
-import com.example.task.dto.request.UserEditPasswordRequestDto;
+import com.example.task.dto.request.UserResetPasswordRequestDto;
 import com.example.task.dto.response.TokenResponseDto;
 import com.example.task.dto.response.UserResponseDto;
 import com.example.task.mapper.request.RegisterUserRequestMapper;
-import com.example.task.mapper.request.UserEditPasswordRequestMapper;
 import com.example.task.mapper.request.UserRequestMapper;
 import com.example.task.service.AuthService;
+import com.example.task.service.PasswordResetService;
 import com.example.task.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +24,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final AuthService authService;
+    private final PasswordResetService passwordResetService;
 
     private final RegisterUserRequestMapper registerUserRequestMapper;
 
@@ -49,14 +50,21 @@ public class UserController {
                 );
     }
 
-    @PostMapping("/edit-password")
-    public CommonResponseDto<Void> editPassword(
-            @RequestBody UserEditPasswordRequestDto userEditPasswordRequestDto
+    @GetMapping("/get-email-message-to-reset-password")
+    public CommonResponseDto<Void> resetPassword(
+            @RequestParam String username
     ){
-        userService.editPassword(
-                UserEditPasswordRequestMapper.dtoToEntity(userEditPasswordRequestDto),
-                userEditPasswordRequestDto.getNewPassword()
-        );
+        passwordResetService.sendEmailToResetPassword(username);
+        return new CommonResponseDto<Void>()
+                .setOk();
+    }
+
+    @PostMapping("/reset-password")
+    public CommonResponseDto<Void> editPassword(
+            @RequestParam String token,
+            @RequestParam String password
+    ){
+        passwordResetService.resetPassword(token,password);
         return new CommonResponseDto<Void>()
                 .setOk();
     }

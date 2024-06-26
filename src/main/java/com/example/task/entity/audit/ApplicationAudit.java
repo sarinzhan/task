@@ -2,6 +2,8 @@ package com.example.task.entity.audit;
 
 import com.example.task.entity.Application;
 import com.example.task.entity.User;
+import com.example.task.entity.enums.ApplicationPriority;
+import com.example.task.entity.enums.ApplicationStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,7 +11,8 @@ import java.time.LocalDateTime;
 
 @Entity(name = "application_audit")
 @Data
-public class ApplicationAudit {
+public class ApplicationAudit extends  Application{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,10 +24,12 @@ public class ApplicationAudit {
     private String description;
 
     @Column(name = "status", nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ApplicationStatus status;
 
     @Column(name = "priority")
-    private String priority;
+    @Enumerated(EnumType.STRING)
+    private ApplicationPriority priority;
 
     @Column(name = "due_date")
     private LocalDateTime dueDate;
@@ -33,16 +38,18 @@ public class ApplicationAudit {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "created_by", nullable = false)
+    @JoinColumn(name = "created_by", nullable = false,updatable = false)
     private User createdBy;
 
     @Column(name = "assigned_at")
     private LocalDateTime assignedAt;
 
     @ManyToOne
-    @JoinColumn(name = "assigned_to", nullable = false)
-    private User assigned_to;
-    //-------------------------------------- audit fields
+    @JoinColumn(name = "assigned_to")
+    private User assignedTo;
+
+
+    // to audit
     @ManyToOne
     @JoinColumn(name = "application_id", nullable = false)
     private Application application;

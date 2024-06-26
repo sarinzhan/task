@@ -3,6 +3,7 @@ package com.example.task.mapper.request;
 import com.example.task.dto.request.ApplicationRegisterRequestDto;
 import com.example.task.entity.Application;
 import com.example.task.entity.User;
+import com.example.task.mapper.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Mapper(componentModel = "spring",imports = {LocalDateTime.class})
-public interface ApplicationRegisterRequestMapper {
+public interface ApplicationRegisterRequestMapper extends BaseMapper {
 
     @Mappings({
             @Mapping(target = "createdBy", expression = "java(getAuthUser())"),
@@ -22,12 +23,7 @@ public interface ApplicationRegisterRequestMapper {
     })
     Application dtoToEntity(ApplicationRegisterRequestDto dto);
 
-    default User getAuthUser(){
-        return (User) SecurityContextHolder
-                .getContext()
-                .getAuthentication()
-                .getPrincipal();
-    }
+
 
     default User setAssignedTo(ApplicationRegisterRequestDto dto){
         if(Objects.nonNull(dto.getAssignedUserId())){

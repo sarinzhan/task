@@ -34,16 +34,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void editPassword(User sourceUser, String newPassword) {
-        User user = usersRepository.findByUsername(sourceUser.getUsername())
-                .orElseThrow(() -> new BaseLogicException("Не удалось найти пользователя"));
-        if(sourceUser.getPassword().equals(user.getPassword())){
-            sourceUser.setId(user.getId());
-            sourceUser.setPassword(newPassword);
-            usersRepository.updatePasswordById(user.getId(), newPassword );
-        }else{
-            throw new BaseLogicException("Указаны неверные данные");
+    public void update(User user) {
+        try {
+            String password = user.getPassword();
+            String encodePassword = passwordEncoder.encode(password);
+            user.setPassword(encodePassword);
+            usersRepository.save(user);
+        }catch (Exception ex){
+            throw new BaseLogicException("Не удалось обновить пароль");
         }
+
     }
 
     @Override

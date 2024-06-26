@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserService {
     void create(User user);
 
-    void editPassword(User user, String newPassword);
+    void update(User user);
 
     List<User> getAll();
 
@@ -17,4 +17,5 @@ public interface UserService {
     User findByUsername(String username);
 
     User findById(Long userId);
+
 }
